@@ -29,17 +29,9 @@ public class PaiementService {
         return paiementRepository.findByDatePaiement(date);
     }
 
-    public List<Paiement> getReglementByDate(Date date) {
-        return paiementRepository.findByDateReglement(date);
-    }
 
-    public List<Paiement> getPaiementByRegulationValid() {
-        return paiementRepository.findByRegulationValid(true);
-    }
 
-    public List<Paiement> getPaiementByReglementNonValid() {
-        return paiementRepository.findByRegulationValidFalse();
-    }
+
 
     public Paiement createPaiement(Paiement paiement) {
 

@@ -38,11 +38,7 @@ public class PaiementController {
         return paiementService.getPaiementByDate(convertStringToDate(date));
     }
 
-    @GetMapping("/byReglementDate/{date}")
-    public List<Paiement> getReglementByDate(@PathVariable String date) {
-        // Convert the string date to a Date object in your service
-        return paiementService.getReglementByDate(convertStringToDate(date));
-    }
+
 
     @PostMapping
     public ResponseEntity<Paiement> createPaiement(@RequestBody Paiement paiement) {

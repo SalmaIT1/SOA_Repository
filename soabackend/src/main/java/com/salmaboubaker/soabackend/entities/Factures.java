@@ -20,14 +20,14 @@ public class Factures {
 
     @OneToMany(mappedBy = "factures", cascade = CascadeType.ALL)
     private List<Product> Products;
+    @ManyToOne
+    @JoinColumn(name = "reglement_id", referencedColumnName = "idReglement")
+    private Reglement reglement;
 
     private double montantTotal;
     private double montantRestant;
     @Enumerated(EnumType.STRING)
     private StatutPaiement statutPaiement;
-    private Long idReglement;
-    private Date dateReglement;
-    private boolean regulationValid;
 
 
 
@@ -88,27 +88,11 @@ public class Factures {
         PAYEE,
         NON_PAYEE
     }
-    public Long getIdReglement() {
-        return idReglement;
+    public Reglement getReglement() {
+        return reglement;
     }
 
-    public void setIdReglement(Long idReglement) {
-        this.idReglement = idReglement;
-    }
-
-    public Date getDateReglement() {
-        return dateReglement;
-    }
-
-    public void setDateReglement(Date dateReglement) {
-        this.dateReglement = dateReglement;
-    }
-
-    public boolean isRegulationValid() {
-        return regulationValid;
-    }
-
-    public void setRegulationValid(boolean regulationValid) {
-        this.regulationValid = regulationValid;
+    public void setReglement(Reglement reglement) {
+        this.reglement = reglement;
     }
 }

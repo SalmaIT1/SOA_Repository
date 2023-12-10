@@ -21,10 +21,13 @@ public interface FactureRepository extends JpaRepository<Factures, Long> {
 
     // Rechercher les factures pour un client donné
     List<Factures> findByClient(Client client);
+    List<Factures> findByClientIdAndStatutPaiementFalse(Long clientId);
+    List<Factures> findByClientIdAndStatutPaiement(Long clientId, Factures.StatutPaiement statutPaiement);
 
-    List<Factures> findByClientIdAndPayeeFalse(Long id);
 
-    List<Factures> findByClientIdAndPayeeTrue(Long id);
+    List<Factures> findByClientIdAndStatutPaiementAndMontantRestantGreaterThan(Long clientId, Factures.StatutPaiement statutPaiement, double montant);
+
+
 
     List<Factures> findByClientId(Long id);
 
